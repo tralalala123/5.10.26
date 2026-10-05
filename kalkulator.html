@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Body Mass Index</title>
+</head>
+<body>
+    <main>
+    <header>
+        <img src="baner.gif" alt="baner">
+    </header>
+    <section class="panele">
+    <section class="lewypanel">
+        <a href="index.html"><h2>BMI</h2></a>
+        <a href="kalkulator.html"><h2>Kalkulator</h2></a>
+    </section>
+
+    <section class="prawypanelkalk">
+        <form action="" method="POST">
+            <div class="formularz">
+            <label for="waga">Waga:</label>
+            <input type="text" id="waga" name="waga">
+            
+            <label for="wzrost">Wzrost:</label>
+            <input type="text" id="wzrost" name="wzrost">
+            
+            <button type="submit" id="przycisk">Oblicz BMI</button>
+
+            <p class="wynik" id="wynik"></p>
+            <p class="kat" id="kat"></p>
+            </div>
+          </form> 
+    </section>
+    </section>
+    <footer>
+        <p>Autor strony: 69420672137 natir</p>
+    </footer>
+    </main>
+
+    <script>
+        const buton = document.querySelector('#przycisk');
+        const pole_wartosci = document.querySelector('#wynik');
+        const kat = document.querySelector('#kat');
+
+        button.addEventListener('click', function(){
+
+            const waga = parseFloat(document.querySelector('#waga').value);
+            const wzrost = parseFloat(document.querySelector('#wzrost').value);
+
+            const wartosc = waga / Math.pow(wzrost, 2);
+
+            pole_wartosci.textContent = `Twoj BMI = ${wartosc},`;
+
+            if (wartosc >= 18.5 || wartosc < 25) {
+                kat.classList.remove('zle');
+                kat.classList.add('dobrze');
+                kat.textContent = 'Wage masz w normie';
+            } else {
+                kat.classList.remove('dobrze');
+                kat.classList.add('zle');
+                kat.textContent = "Nie masz wagi w normie";
+            }
+        })
+    </script>
+</body>
+</html>
